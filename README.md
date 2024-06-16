@@ -1,5 +1,8 @@
 # Wait for Netlify Deploy — A GitHub Action ⏱
 
+> [!WARNING]
+> This repo is no longer mainted. See https://github.com/archiewood/wait-for-netlify-action.
+
 Do you have other Github actions (Lighthouse, Cypress, etc) that depend on the Netlify Preview URL? This action will wait until the url is available before running the next task.
 
 This is a fork of [JakePartusch/wait-for-netlify-action](https://github.com/JakePartusch/wait-for-netlify-action) that uses the deployment for the commit, rather than for the PR.
