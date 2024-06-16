@@ -18,13 +18,13 @@ const waitForUrl = async (url, MAX_TIMEOUT) => {
 
 const run = async () => {
   try {
-    const commit = github.context.payload.head;
+    const commit = github.context.payload.pull_request.head.sha;
     const MAX_TIMEOUT = Number(core.getInput("site_name")) || 60;
     const siteName = core.getInput("site_name");
     if (!siteName) {
       core.setFailed("Required field `site_name` was not provided");
     }
-    const url = `https://${commit}--${siteName}.netlify.com`;
+    const url = `https://${commit}--${siteName}.netlify.app`;
     core.setOutput("url", url);
     console.log(`Waiting for a 200 from: ${url}`);
     await waitForUrl(url, MAX_TIMEOUT);

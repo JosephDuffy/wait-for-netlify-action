@@ -5,13 +5,13 @@
 
 Do you have other Github actions (Lighthouse, Cypress, etc) that depend on the Netlify Preview URL? This action will wait until the url is available before running the next task.
 
-This is a fork of [JakePartusch/wait-for-netlify-action](https://github.com/JakePartusch/wait-for-netlify-action) that uses the deployment for the commit, rather than for the PR.
+This is a fork of JosephDuffy/wait-for-netlify-action that uses the newer netlify `.app` domain rather than `.com` which is legacy.
 
 ## Inputs
 
 ### `site_name`
 
-**Required** The name of the Netlify site to reach `https://{site_name}.netlify.com`
+**Required** The name of the Netlify site to reach `https://{site_name}.netlify.app`
 
 ### `max_timeout`
 
@@ -30,7 +30,7 @@ Basic Usage
 ```yaml
 steps:
   - name: Waiting for Netlify Preview
-    uses: josephduffy/wait-for-netlify-action@v1
+    uses: archiewood/wait-for-netlify-action@v1
     id: wait-for-netflify-preview
     with:
       site_name: "YOUR_SITE_NAME"
@@ -63,7 +63,7 @@ jobs:
         run: |
           npm run build
       - name: Waiting for 200 from the Netlify Preview
-        uses: josephduffy/wait-for-netlify-action@v1
+        uses: archiewood/wait-for-netlify-action@v1
         id: wait-for-netflify-preview
         with:
           site_name: "YOUR_SITE_NAME"
